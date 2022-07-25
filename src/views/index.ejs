@@ -10,24 +10,51 @@
 <body>
     <div class="container">
         <h1>CRUD Landing page</h1>
-        <form action="post">
-            <hr/>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Options</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%for (var i = 0; i< task.lenght; i++) {%>
-                        
-                    <% }%>
-                </tbody>
-            </table>
+
+        <form action="/add" method="post">
+            <legend>
+                Create new task
+            </legend>
+            <div class="form-group">
+                <input type="text" id="title" class="form-control" name="Title"/>
+            </div>
+            <br>
+            <div class="form-group">
+                <textarea class="form-control" rows="1" cols="50" name="Description" placeholder="Add a description"></textarea>
+            </div>
+            <br>
+            <button class="btn btn-primary">
+                Add task
+            </button>
         </form>
     </div>
+    <div class="container">
+        <hr/>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for (var i = 0; i < tasks.length; i++) {%>
+                    <tr>
+                        <td><%= i + 1%></td>
+                        <td>
+                            <strong><%= tasks[i].Title %></strong>
+                        </td>
+                        <td><%= tasks[i].Description %></td>
+                    </tr>
+                <% }%>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        var title = document.getElementById('title').focus();
+    </script>
 </body>
 </html>

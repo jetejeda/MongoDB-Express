@@ -13,7 +13,7 @@ app.set('views', path.join(__dirname, "views"));
 app.set('view engine', 'ejs');
 const connectDB = require('./libs/db-connection');
 connectDB();
-//middlewares -> funciones que se ejecutan cada vez que llega una petición al servidor
+//middlewares -> Functions that get executed every time a request is sent to the server
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 

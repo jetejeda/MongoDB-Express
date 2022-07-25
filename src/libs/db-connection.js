@@ -8,7 +8,7 @@ module.exports = function Connection(){
                 useNewUrlParser: true
             },(err)=>{
                 if(err) console.log(err)
-                else console.log("Connected")
+                else console.log("Connected to MongoDB")
             });
         } catch (error) {
             console.log(error);

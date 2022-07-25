@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Task = require('../model/Task')();
 
+//Get all tasks from DB
 router.get('/', (req, res)=>{
 
     Task.find({}, (err, tasks)=>{

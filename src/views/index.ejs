@@ -47,6 +47,15 @@
                             <strong><%= tasks[i].Title %></strong>
                         </td>
                         <td><%= tasks[i].Description %></td>
+                        <td> 
+                            <a 
+                            class="<%= tasks[i].Status ? 'btn btn-success': 'btn btn-dark' %>"
+                            href="/changeStatus/<%= tasks[i]._id %>">Done</a>
+                            <a 
+                            class="btn btn-danger"
+                            id="delete"
+                            href="/delete/<%= tasks[i]._id %>">Delete task</a>
+                        </td>
                     </tr>
                 <% }%>
             </tbody>
@@ -54,7 +63,7 @@
     </div>
 
     <script>
-        var title = document.getElementById('title').focus();
+        document.getElementById('title').focus();
     </script>
 </body>
 </html>

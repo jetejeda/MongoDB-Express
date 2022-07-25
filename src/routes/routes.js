@@ -7,8 +7,7 @@ router.get('/', (req, res)=>{
     Task.find({}, (err, tasks)=>{
         if(err) throw err;
         res.render('index',{
-            tasks: tasks,
-            title: 'TITLE'
+            tasks: tasks
         })
     });
 
@@ -23,5 +22,24 @@ router.post('/add', (req, res)=>{
         if(err) throw err
         res.redirect('/')
     })
+});
+
+//Update status of a single task
+router.get('/changeStatus/:id', (req, res)=>{
+    let id = req.params.id;
+    Task.findById(id, (err, task)=>{
+        if(err) throw err
+        task.Status = !task.Status;
+        task.save().then(()=> res.redirect('/'));
+    });
+});
+
+//Delete a task by Id
+router.get('/delete/:id', (req, res)=>{
+    let id = req.params.id;
+    Task.deleteOne({_id: id}, (err, task)=>{
+        if(err) console.log(err);
+        res.redirect('/');
+    });
 });
 module.exports = router;
